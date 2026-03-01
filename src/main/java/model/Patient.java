@@ -1,9 +1,9 @@
 package model;
 
 public class Patient {
-    int id;
-    String name;
-    String appReason;
+    private int id;
+    private String name;
+    private String appReason;
 
     public void Patient(int id, String name, String appReason) {
         this.id = id;
