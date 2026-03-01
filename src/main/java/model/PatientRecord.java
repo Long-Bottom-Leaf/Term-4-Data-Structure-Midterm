@@ -5,24 +5,13 @@ public class PatientRecord {
     private String diagnosis;
     private String treatmentNotes;
 
-    public void patientRecord(String visitDate, String diagnosis, String treatmentNotes) {
+    public PatientRecord(String visitDate, String diagnosis, String treatmentNotes) {
         this.visitDate = visitDate;
         this.diagnosis = diagnosis;
         this.treatmentNotes = treatmentNotes;
     }
 
-    public void setVisitDate(String visitDate) {
-        this.visitDate = visitDate;
-    }
-
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
-
-    public void setTreatmentNotes(String treatmentNotes) {
-        this.treatmentNotes = treatmentNotes;
-    }
-
+    // accessors
     public String getVisitDate() {
         return visitDate;
     }
@@ -33,5 +22,10 @@ public class PatientRecord {
 
     public String getTreatmentNotes() {
         return treatmentNotes;
+    }
+
+    @Override
+    public String toString() {
+        return "Date: " + visitDate + ", Diagnosis: " + diagnosis + ", Notes: " + treatmentNotes;
     }
 }
