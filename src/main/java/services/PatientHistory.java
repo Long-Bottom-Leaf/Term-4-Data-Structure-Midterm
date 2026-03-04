@@ -1,7 +1,6 @@
 package services;
 
 import model.PatientRecord;
-import org.w3c.dom.Node;
 
 public class PatientHistory {
 
@@ -10,7 +9,7 @@ public class PatientHistory {
     private Node current;
 
     // private inner node
-    private class Node {
+    private static class Node {
         PatientRecord data;
         Node next;
         Node previous;

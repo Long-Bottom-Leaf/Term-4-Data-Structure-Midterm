@@ -50,4 +50,10 @@ public class WaitingRoomTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void testServeEmptyQueue() {
+        WaitingRoom room = new WaitingRoom();
+        assertNull(room.serveNextPatient());
+    }
 }
