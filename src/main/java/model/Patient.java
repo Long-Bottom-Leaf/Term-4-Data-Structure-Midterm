@@ -3,12 +3,12 @@ package model;
 public class Patient {
     private int id;
     private String name;
-    private String appReason;
+    private String reasonForVisit;
 
     public Patient(int id, String name, String appReason) {
         this.id = id;
         this.name = name;
-        this.appReason = appReason;
+        this.reasonForVisit = appReason;
     }
 
     // accessors
@@ -20,12 +20,12 @@ public class Patient {
         return name;
     }
 
-    public String getAppReason() {
-        return appReason;
+    public String getReasonForVisit() {
+        return reasonForVisit;
     }
 
     @Override
     public String toString() {
-        return "ID: " + id + ", Name: " + name + ", Reason: " + appReason;
+        return "ID: " + id + ", Name: " + name + ", Reason: " + reasonForVisit;
     }
 }
