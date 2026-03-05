@@ -29,7 +29,8 @@ public class MainApp {
             System.out.println("2. Serve Next Patient");
             System.out.println("3. Add Emergency Patient");
             System.out.println("4. View Patient History");
-            System.out.println("5. Exit");
+            System.out.println("5. Search patient by ID");
+            System.out.println("6. Exit");
             System.out.print("Enter choice: ");
 
             choice = scanner.nextInt();
@@ -47,6 +48,7 @@ public class MainApp {
                     } else {
                         System.out.println("No patients waiting.");
                     }
+
                     break;
 
                 case 3:
@@ -69,24 +71,44 @@ public class MainApp {
                     boolean inserted = waitingRoom.insertEmergencyPatient(position, emergency);
                     if (inserted) {
                         System.out.println("Emergency patient inserted.");
+
                     } else {
                         System.out.println("Invalid position.");
                     }
+
                     break;
 
                 case 4:
                     navigateHistory(scanner, patientHistory);
+
                     break;
 
                 case 5:
+                    System.out.println("Enter patient ID: ");
+
+                    int searchId = scanner.nextInt();
+
+                    Patient found = waitingRoom.findPatientById(searchId);
+
+                    if (found != null) {
+                        System.out.println("Patient: " + found);
+
+                    } else {
+                        System.out.println("Patient not found!");
+                    }
+
+                    break;
+
+                case 6:
                     System.out.println("Exiting program...");
+
                     break;
 
                 default:
                     System.out.println("Invalid option.");
             }
 
-        } while (choice != 5);
+        } while (choice != 6);
 
         scanner.close();
     }

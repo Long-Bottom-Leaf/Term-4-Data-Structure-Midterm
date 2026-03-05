@@ -8,7 +8,7 @@ public class NavigateHistory {
 
     public static void navigateHistory(Scanner scanner, PatientHistory history) {
 
-        history.getOldest();
+        System.out.println("Starting record: " + history.getOldest());
 
         int choice;
 
@@ -18,7 +18,7 @@ public class NavigateHistory {
             System.out.println("1. Next Record");
             System.out.println("2. Previous Record");
             System.out.println("3. Exit History View");
-            System.out.print("Choice: ");
+            System.out.print("Input: ");
 
             choice = scanner.nextInt();
 
@@ -27,12 +27,14 @@ public class NavigateHistory {
                     if (history.nextRecord() == null) {
                         System.out.println("No newer records.");
                     }
+
                     break;
 
                 case 2:
                     if (history.previousRecord() == null) {
                         System.out.println("No older records.");
                     }
+
                     break;
             }
 
