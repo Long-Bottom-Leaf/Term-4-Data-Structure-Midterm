@@ -36,6 +36,17 @@ public class WaitingRoom {
             return true;
         }
 
+    // find patient by ID
+        public Patient findPatientById(int id) {
+            for (Patient patient : patients) {
+                if (patient.getId() == id) {
+                    return patient;
+                }
+            }
+
+            return null;
+        }
+
     // return all patients - read only
         public List<Patient> getAllPatients() {
             return new LinkedList<>(queue);
