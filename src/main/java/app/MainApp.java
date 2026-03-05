@@ -38,7 +38,10 @@ public class MainApp {
 
             switch (choice) {
                 case 1:
-                    System.out.println(waitingRoom.getAllPatients());
+                    for (Patient patient : waitingRoom.getAllPatients()) {
+                        System.out.println(patient);
+                    }
+
                     break;
 
                 case 2:
@@ -85,7 +88,6 @@ public class MainApp {
 
                 case 5:
                     System.out.println("Enter patient ID: ");
-
                     int searchId = scanner.nextInt();
 
                     Patient found = waitingRoom.findPatientById(searchId);
