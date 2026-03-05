@@ -6,6 +6,10 @@ import services.PatientHistory;
 import model.Patient;
 import model.PatientRecord;
 
+import static app.NavigateHistory.navigateHistory;
+import static app.PreloadPatientHistory.preloadHistory;
+import static app.PreloadPatients.preloadPatients;
+
 public class MainApp {
 
     public static void main(String[] args) {
@@ -20,39 +24,70 @@ public class MainApp {
         int choice;
 
         do {
+            System.out.println("\n======= PATIENT MANAGEMENT SYSTEM =======");
+            System.out.println("1. View Waiting Room");
+            System.out.println("2. Serve Next Patient");
+            System.out.println("3. Add Emergency Patient");
+            System.out.println("4. View Patient History");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.println(waitingRoom.getAllPatients());
+                    break;
+
+                case 2:
+                    Patient served = waitingRoom.serveNextPatient();
+                    if (served != null) {
+                        System.out.println("Serving: " + served);
+                    } else {
+                        System.out.println("No patients waiting.");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("Enter position for emergency insertion: ");
+                    int position = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter ID: ");
+                    int id = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter Name: ");
+                    String name = scanner.nextLine();
+
+                    System.out.print("Enter Condition: ");
+                    String condition = scanner.nextLine();
+
+                    Patient emergency = new Patient(id, name, condition);
+
+                    boolean inserted = waitingRoom.insertEmergencyPatient(position, emergency);
+                    if (inserted) {
+                        System.out.println("Emergency patient inserted.");
+                    } else {
+                        System.out.println("Invalid position.");
+                    }
+                    break;
+
+                case 4:
+                    navigateHistory(scanner, patientHistory);
+                    break;
+
+                case 5:
+                    System.out.println("Exiting program...");
+                    break;
+
+                default:
+                    System.out.println("Invalid option.");
+            }
 
         } while (choice != 5);
 
         scanner.close();
     }
-}
-
-// preload patients
-private static void preloadPatients(WaitingRoom waitingRoom) {
-
-    waitingRoom.addPatient(new Patient(1, "Alice", "Flu"));
-    waitingRoom.addPatient(new Patient(2, "Billy", "Stomach Pain"));
-    waitingRoom.addPatient(new Patient(3, "Charlie", "Headache"));
-    waitingRoom.addPatient(new Patient(4, "Diana", "Back Pain"));
-    waitingRoom.addPatient(new Patient(5, "Ethan", "Fever"));
-    waitingRoom.addPatient(new Patient(6, "Fiona", "Infection"));
-    waitingRoom.addPatient(new Patient(7, "George", "Sprain"));
-    waitingRoom.addPatient(new Patient(8, "Hannah", "Allergy"));
-    waitingRoom.addPatient(new Patient(9, "Ian", "Migraine"));
-    waitingRoom.addPatient(new Patient(10, "Julia", "Cold"));
-}
-
-// preload patient history
-private static void preloadHistory(PatientHistory history) {
-
-    history.addRecord(new PatientRecord("2026-01-01", "Flu", "Rest"));
-    history.addRecord(new PatientRecord("2026-02-01", "Cold", "Medication"));
-    history.addRecord(new PatientRecord("2026-03-01", "Injury", "Therapy"));
-    history.addRecord(new PatientRecord("2026-04-01", "Allergy", "Antihistamines"));
-    history.addRecord(new PatientRecord("2026-05-01", "Fracture", "Cast"));
-    history.addRecord(new PatientRecord("2026-06-01", "Migraine", "Painkillers"));
-    history.addRecord(new PatientRecord("2026-07-01", "Infection", "Antibiotics"));
-    history.addRecord(new PatientRecord("2026-08-01", "Sprain", "Rest + Ice"));
-    history.addRecord(new PatientRecord("2026-09-01", "Asthma", "Inhaler"));
-    history.addRecord(new PatientRecord("2026-10-01", "Checkup", "Routine Exam"));
 }
