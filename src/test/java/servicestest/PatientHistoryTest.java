@@ -5,6 +5,7 @@ import model.PatientRecord;
 import services.PatientHistory;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.time.LocalDate;
 
 public class PatientHistoryTest {
 
@@ -12,8 +13,8 @@ public class PatientHistoryTest {
     void testAddRecords() {
         PatientHistory history = new PatientHistory();
 
-        history.addRecord(new PatientRecord("2026-01-01", "Flu", "Rest"));
-        history.addRecord(new PatientRecord("2026-02-01", "Cold", "Medication"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 1, 1), "Flu", "Rest"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 2, 1), "Cold", "Medication"));
 
         assertEquals(2, history.size());
     }
@@ -22,9 +23,9 @@ public class PatientHistoryTest {
     void testNavigation() {
         PatientHistory history = new PatientHistory();
 
-        PatientRecord r1 = new PatientRecord("2026-01-01", "Flu", "Rest");
-        PatientRecord r2 = new PatientRecord("2026-02-01", "Cold", "Medication");
-        PatientRecord r3 = new PatientRecord("2026-03-01", "Injury", "Therapy");
+        PatientRecord r1 = new PatientRecord(LocalDate.of(2026, 1, 1), "Flu", "Rest");
+        PatientRecord r2 = new PatientRecord(LocalDate.of(2026, 2, 1), "Cold", "Medication");
+        PatientRecord r3 = new PatientRecord(LocalDate.of(2026, 3, 1), "Injury", "Therapy");
 
         history.addRecord(r1);
         history.addRecord(r2);
@@ -43,7 +44,7 @@ public class PatientHistoryTest {
     void testBoundaryProtection() {
         PatientHistory history = new PatientHistory();
 
-        PatientRecord r1 = new PatientRecord("2026-01-01", "Flu", "Rest");
+        PatientRecord r1 = new PatientRecord(LocalDate.of(2026, 1, 1), "Flu", "Rest");
 
         history.addRecord(r1);
 
@@ -65,8 +66,8 @@ public class PatientHistoryTest {
     void testGetOldestAndNewest() {
         PatientHistory history = new PatientHistory();
 
-        PatientRecord r1 = new PatientRecord("2026-01-01", "Flu", "Rest");
-        PatientRecord r2 = new PatientRecord("2026-02-01", "Cold", "Medication");
+        PatientRecord r1 = new PatientRecord(LocalDate.of(2026, 1, 1), "Flu", "Rest");
+        PatientRecord r2 = new PatientRecord(LocalDate.of(2026, 2, 1), "Cold", "Medication");
 
         history.addRecord(r1);
         history.addRecord(r2);
