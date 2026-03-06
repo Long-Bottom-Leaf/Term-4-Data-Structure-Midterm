@@ -1,18 +1,20 @@
 package model;
 
+import java.time.LocalDate;
+
 public class PatientRecord {
-    private String visitDate;
+    private LocalDate visitDate;
     private String diagnosis;
     private String treatmentNotes;
 
-    public PatientRecord(String visitDate, String diagnosis, String treatmentNotes) {
+    public PatientRecord(LocalDate visitDate, String diagnosis, String treatmentNotes) {
         this.visitDate = visitDate;
         this.diagnosis = diagnosis;
         this.treatmentNotes = treatmentNotes;
     }
 
     // accessors
-    public String getVisitDate() {
+    public LocalDate getVisitDate() {
         return visitDate;
     }
 
