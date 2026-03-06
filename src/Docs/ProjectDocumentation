@@ -1,0 +1,20 @@
+============ Patient Management System ============
+
+Overview:
+
+This project simulates a patient management system which would be used in a medical clinic. This system manages two
+main features:
+
+1. Patient History - historical records of patient visits
+2. Waiting Room - a queue of patients waiting to be seen
+
+Two data structures are used to implement this system:
+
+1. Queue (FIFO) - used in the waiting room service
+2. Doubly Linked List (DLL) - used in the patient history service
+
+
+
+
+
+
