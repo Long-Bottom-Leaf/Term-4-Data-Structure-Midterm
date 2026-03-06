@@ -56,4 +56,28 @@ public class WaitingRoomTest {
         WaitingRoom room = new WaitingRoom();
         assertNull(room.serveNextPatient());
     }
+
+    @Test
+    void testFindPatientById() {
+        WaitingRoom room = new WaitingRoom();
+
+        Patient p1 = new Patient(1, "Alice", "Flu");
+        Patient p2 = new Patient(2, "Billy", "Pain");
+
+        room.addPatient(p1);
+        room.addPatient(p2);
+
+        Patient found = room.findPatientById(2);
+
+        assertEquals(p2, found);
+    }
+
+    @Test
+    void testFindPatientByIdNotFound() {
+        WaitingRoom room = new WaitingRoom();
+
+        room.addPatient(new Patient(1, "Alice", "Flu"));
+
+        assertNull(room.findPatientById(99));
+    }
 }
