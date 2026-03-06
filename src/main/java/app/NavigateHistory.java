@@ -40,5 +40,4 @@ public class NavigateHistory {
 
         } while (choice != 3);
     }
-
 }

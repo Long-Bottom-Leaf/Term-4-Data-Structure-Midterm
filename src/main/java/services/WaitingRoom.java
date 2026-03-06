@@ -38,7 +38,7 @@ public class WaitingRoom {
 
     // find patient by ID
         public Patient findPatientById(int id) {
-            for (Patient patient : patients) {
+            for (Patient patient : queue) {
                 if (patient.getId() == id) {
                     return patient;
                 }
