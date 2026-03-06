@@ -74,4 +74,127 @@ Keep track of a current record
 In the program, this is used to implement the history navigation menu, where users can move to the next or previous
 record in the list. This behavior is similar to how users browse browser history or undo/redo functionality.
 
+What would happen if Next and Previous pointers were not updated?
 
+When manipulating a doubly linked list, it is important to correctly update both the next and previous pointers.
+
+If these pointers are not updated properly, several problems can occur:
+
+1. Broken Links
+    - Some nodes may become unreachable.
+
+2. Infinite Loops
+    - Incorrect references could cause the list to cycle endlessly.
+
+3. Navigation Errors
+    - Moving forward or backward through records could fail.
+
+4. Data Loss
+    - Some records may appear to disappear from the list.
+
+Correct pointer management ensures the integrity of the list structure.
+
+Why a Doubly Linked List works better than an Array or Array List?
+
+Although arrays and ArrayLists can store data, they are not ideal for this type of navigation system.
+
+Array/ArrayList Limitations:
+
+Arrays and ArrayLists require index management to move forward or backward - index++ and index--
+
+This means the program must always track the current index manually. Also, arrays have fixed sizes and insertions
+in the middle of the list require shifting elements.
+
+Advantages of Doubly Linked Lists
+
+A Doubly Linked List provides:
+
+- Direct next and previous navigation
+- Dynamic size
+- No shifting of elements
+- Efficient insertion
+
+Each node knows its neighbors, making navigation very natural. For a record history system, this makes a DLL the
+most suitable structure.
+
+Test Cases Explanation
+
+PatientHistory Tests
+
+Test: testAddRecords()
+
+Purpose:
+
+- Verifies that records can be successfully added to the history.
+
+What it checks:
+
+- After adding two records, the history size should be 2.
+
+This ensures the addRecord() method correctly links nodes in the DLL.
+
+Test: testNavigation()
+
+Purpose:
+
+Verifies correct forward and backward navigation in the history.
+
+Steps tested:
+
+- Add three records
+- Move to the oldest record
+- Navigate forward
+- Navigate backward
+
+Expected results:
+
+- Oldest → r1
+- Next → r2
+- Next → r3
+- Next → null
+- Previous → r2
+
+This confirms that the next and previous pointers work correctly.
+
+Test: testBoundaryProtection()
+
+Purpose:
+
+Ensures the program does not move beyond the list boundaries.
+
+Example:
+
+If there is only one record - previousRecord() → null and nextRecord() → null
+This protects against navigation errors
+
+Test: testEmptyHistoryNavigation()
+
+Purpose:
+
+Ensures the system behaves correctly when the history is empty.
+
+Expected behavior:
+
+- getCurrent() → null
+- nextRecord() → null
+- previousRecord() → null
+
+This protects against null point errors
+
+WaitingRoom Tests
+
+Test: testFifoServiceOrder()
+
+Purpose:
+
+Verifies that the queue follows the FIFO principle.
+
+Steps:
+
+1. Add Alice
+2. Add Billy
+3. Serve next patient
+
+Expected result: Alice is served first
+
+This confirms that serveNextPatient() removes the first patient in the queue
