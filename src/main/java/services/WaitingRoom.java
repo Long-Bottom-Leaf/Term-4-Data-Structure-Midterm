@@ -47,6 +47,11 @@ public class WaitingRoom {
             return null;
         }
 
+    // check next patient
+        public Patient checkNextPatient() {
+            return queue.peekFirst();
+        }
+
     // return all patients - read only
         public List<Patient> getAllPatients() {
             return new LinkedList<>(queue);

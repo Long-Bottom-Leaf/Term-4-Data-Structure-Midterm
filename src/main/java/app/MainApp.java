@@ -30,7 +30,8 @@ public class MainApp {
             System.out.println("3. Add Emergency Patient");
             System.out.println("4. View Patient History");
             System.out.println("5. Search patient by ID");
-            System.out.println("6. Exit");
+            System.out.println("6. Check next patient in queue");
+            System.out.println("7. Exit");
             System.out.print("Enter choice: ");
 
             choice = scanner.nextInt();
@@ -102,6 +103,11 @@ public class MainApp {
                     break;
 
                 case 6:
+                    System.out.println("Next patient: " + waitingRoom.checkNextPatient());
+
+                    break;
+
+                case 7:
                     System.out.println("Exiting program...");
 
                     break;

@@ -60,4 +60,18 @@ public class PatientHistoryTest {
         assertNull(history.nextRecord());
         assertNull(history.previousRecord());
     }
+
+    @Test
+    void testGetOldestAndNewest() {
+        PatientHistory history = new PatientHistory();
+
+        PatientRecord r1 = new PatientRecord("2026-01-01", "Flu", "Rest");
+        PatientRecord r2 = new PatientRecord("2026-02-01", "Cold", "Medication");
+
+        history.addRecord(r1);
+        history.addRecord(r2);
+
+        assertEquals(r1, history.getOldest());
+        assertEquals(r2, history.getNewest());
+    }
 }
