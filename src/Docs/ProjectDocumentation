@@ -197,4 +197,77 @@ Steps:
 
 Expected result: Alice is served first
 
-This confirms that serveNextPatient() removes the first patient in the queue
+This confirms that serveNextPatient() removes the first patient in the queue.
+
+Test: testEmergencyInsertion()
+
+Purpose:
+
+Verifies that emergency patients can be inserted into a specific position.
+
+Steps:
+
+- Add Alice
+- Add Billy
+- Insert emergency patient at position 1
+
+Expected queue: Alice → Emergency → Billy
+
+This test confirms the emergency insertion works.
+
+Test: testInvalidEmergencyInsertion()
+
+Purpose:
+
+Ensures invalid insertion positions are rejected.
+
+Example:
+
+Trying to insert at position 1 when the queue is empty should return: false
+
+This protects the system from invalid inputs.
+
+Test: testServeEmptyQueue()
+
+Purpose:
+
+Ensures serving from an empty queue does not cause errors.
+
+Expected result: serveNextPatient() → null
+
+This confirms the method safely handles an empty waiting room queue.
+
+Suggested Future Improvements
+
+1. Persistent Storage
+
+Currently, the program only stores data in memory only.
+
+Future versions should store data using:
+
+- Files
+- Databases
+
+This would allow patient data to persist between program runs. For this project I decided to keep it simple as we only
+needed to show proof that the program functions correctly, proper data storage can be added later if this was a
+real project.
+
+2. Patient Priority System
+
+Instead of only inserting emergency patients manually, the system could implement a priority queue that automatically
+prioritizes severe cases. Again for this project I wanted to reduce the complexity of building out a priority system
+but that can certainly be added later.
+
+3. Interface Improvements
+
+The waiting room display could be improved by formatting patients in a format which is easier to read.
+
+Conclusion
+
+This project demonstrates practical use of data structures in a real-world scenario.
+
+- Queues effectively model waiting room behavior using FIFO ordering.
+- Doubly Linked Lists provide efficient navigation for patient history.
+- JUnit tests ensure system reliability and correctness.
+
+The system is modular, tested, and designed in a way that can be extended with additional features in the future.
