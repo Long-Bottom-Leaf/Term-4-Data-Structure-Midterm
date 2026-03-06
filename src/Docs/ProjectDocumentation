@@ -13,8 +13,23 @@ Two data structures are used to implement this system:
 1. Queue (FIFO) - used in the waiting room service
 2. Doubly Linked List (DLL) - used in the patient history service
 
+Why a Queue (FIFO) is appropriate for Waiting Room service
 
+A Queue is an ideal data structure for managing a waiting room because it follows the First-In-First-Out (FIFO)
+principle. In a medical clinic, patients are normally seen in the same order they arrive. The queue structure naturally
+models this behavior.
 
+Operations used in the waiting room include:
 
+- Add Patient → Patient joins the end of the queue.
+- Serve Next Patient → The patient at the front of the queue is removed and served.
+- Emergency Insertion → Allows inserting a patient at a specific position when necessary.
+
+Using a queue ensures the waiting room behaves in a fair and predictable order and protects against duplicate entries.
+
+FIFO Principle
+
+FIFO stands for First-In-First-Out. This means that the first element inserted into the queue will be the
+first one removed.
 
 
