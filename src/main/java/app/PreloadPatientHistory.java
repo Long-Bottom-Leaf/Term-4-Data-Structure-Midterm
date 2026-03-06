@@ -3,20 +3,22 @@ package app;
 import model.PatientRecord;
 import services.PatientHistory;
 
+import java.time.LocalDate;
+
 public class PreloadPatientHistory {
 
     public static void preloadHistory(PatientHistory history) {
 
-        history.addRecord(new PatientRecord("2026-01-01", "Flu", "Rest"));
-        history.addRecord(new PatientRecord("2026-02-01", "Cold", "Medication"));
-        history.addRecord(new PatientRecord("2026-03-01", "Injury", "Therapy"));
-        history.addRecord(new PatientRecord("2026-04-01", "Allergy", "Antihistamines"));
-        history.addRecord(new PatientRecord("2026-05-01", "Fracture", "Cast"));
-        history.addRecord(new PatientRecord("2026-06-01", "Migraine", "Painkillers"));
-        history.addRecord(new PatientRecord("2026-07-01", "Infection", "Antibiotics"));
-        history.addRecord(new PatientRecord("2026-08-01", "Sprain", "Rest + Ice"));
-        history.addRecord(new PatientRecord("2026-09-01", "Asthma", "Inhaler"));
-        history.addRecord(new PatientRecord("2026-10-01", "Checkup", "Routine Exam"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 1, 1), "Flu", "Rest"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 2, 1), "Cold", "Medication"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 3, 1), "Injury", "Therapy"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 4, 1), "Allergy", "Antihistamines"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 5, 1), "Fracture", "Cast"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 6, 1), "Migraine", "Painkillers"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 7, 1), "Infection", "Antibiotics"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 8, 1), "Sprain", "Rest + Ice"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 9, 1), "Asthma", "Inhaler"));
+        history.addRecord(new PatientRecord(LocalDate.of(2026, 10, 1), "Checkup", "Routine Exam"));
 
     }
 }

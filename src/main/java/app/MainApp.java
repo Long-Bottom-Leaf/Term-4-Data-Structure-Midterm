@@ -77,7 +77,7 @@ public class MainApp {
                         System.out.println("Emergency patient inserted.");
 
                     } else {
-                        System.out.println("Invalid position.");
+                        System.out.println("Invalid position or duplicate patient ID.");
                     }
 
                     break;
