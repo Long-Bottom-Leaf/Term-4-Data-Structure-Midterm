@@ -13,7 +13,7 @@ Two data structures are used to implement this system:
 1. Queue (FIFO) - used in the waiting room service
 2. Doubly Linked List (DLL) - used in the patient history service
 
-Why a Queue (FIFO) is appropriate for Waiting Room service
+Why a Queue (FIFO) is appropriate for Waiting Room service?
 
 A Queue is an ideal data structure for managing a waiting room because it follows the First-In-First-Out (FIFO)
 principle. In a medical clinic, patients are normally seen in the same order they arrive. The queue structure naturally
@@ -31,5 +31,47 @@ FIFO Principle
 
 FIFO stands for First-In-First-Out. This means that the first element inserted into the queue will be the
 first one removed.
+
+Example:
+
+Patient arrival order - 1. Alice 2. Billy 3. Charlie
+Queue structure - Front → Alice → Billy → Charlie → Back
+When the doctor calls a patient - Alice is served first
+Then Alice is removed - Front → Billy → Charlie → Back
+
+This system ensures patients are treated in the order they arrived.
+
+What would happen if a stack was used instead of a queue?
+
+A stack follows the last in first out (LIFO) principle, this means the last patient to arrive would be the first
+to be seen by the doctor.
+
+Example with stack:
+
+Patient arrival order - 1. Alice 2. Billy 3. Charlie
+Stack order - Top → Charlie → Billy → Alice
+When the doctor calls a patient - Charlie is served first
+
+This would create an unfair waiting system, because the newest patient would always jump ahead of earlier patients.
+Therefor using a stack would be inappropriate for a medical clini system.
+
+Why a doubly linked list is appropriate for Patient History service.
+
+A Doubly Linked List (DLL) is used for patient history service because it allows efficient navigation in both directions
+of the list.
+
+Each node in a doubly linked list contains:
+
+A reference to the next record
+A reference to the previous record
+
+This structure allows the system to:
+
+Move forward through patient records
+Move backward through patient records
+Keep track of a current record
+
+In the program, this is used to implement the history navigation menu, where users can move to the next or previous
+record in the list. This behavior is similar to how users browse browser history or undo/redo functionality.
 
 
