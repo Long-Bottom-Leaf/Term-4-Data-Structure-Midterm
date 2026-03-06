@@ -13,8 +13,13 @@ public class WaitingRoom {
     }
 
     // add patient to end (normal arrival)
-        public void addPatient(Patient patient) {
+        public boolean addPatient(Patient patient) {
+            if (findPatientById(patient.getId()) != null) {
+                return false;
+            }
+
             queue.addLast(patient);
+            return true;
         }
 
     // serve next patient (FIFO)
@@ -28,6 +33,10 @@ public class WaitingRoom {
 
     // emergency insertion
         public boolean insertEmergencyPatient(int position, Patient patient) {
+            if (findPatientById(patient.getId()) != null) {
+                return false; // duplicate ID
+            }
+
             if (position < 0 || position > queue.size()) {
                 return false;
             }
