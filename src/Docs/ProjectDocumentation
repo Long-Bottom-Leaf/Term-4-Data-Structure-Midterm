@@ -146,4 +146,55 @@ Steps tested:
 - Navigate forward
 - Navigate backward
 
+Expected results:
+
+- Oldest → r1
+- Next → r2
+- Next → r3
+- Next → null
+- Previous → r2
+
 This confirms that the next and previous pointers work correctly.
+
+Test: testBoundaryProtection()
+
+Purpose:
+
+Ensures the program does not move beyond the list boundaries.
+
+Example:
+
+If there is only one record - previousRecord() → null and nextRecord() → null
+This protects against navigation errors
+
+Test: testEmptyHistoryNavigation()
+
+Purpose:
+
+Ensures the system behaves correctly when the history is empty.
+
+Expected behavior:
+
+- getCurrent() → null
+- nextRecord() → null
+- previousRecord() → null
+
+This protects against null point errors
+
+WaitingRoom Tests
+
+Test: testFifoServiceOrder()
+
+Purpose:
+
+Verifies that the queue follows the FIFO principle.
+
+Steps:
+
+1. Add Alice
+2. Add Billy
+3. Serve next patient
+
+Expected result: Alice is served first
+
+This confirms that serveNextPatient() removes the first patient in the queue
