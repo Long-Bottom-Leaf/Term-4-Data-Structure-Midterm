@@ -18,7 +18,7 @@ public class SearchById {
             System.out.println("Invalid ID.");
             scanner.nextLine();
 
-            break;
+            return;
         }
 
         scanner.nextLine();

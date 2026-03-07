@@ -9,6 +9,7 @@ import model.PatientRecord;
 import static app.NavigateHistory.navigateHistory;
 import static app.PreloadPatientHistory.preloadHistory;
 import static app.PreloadPatients.preloadPatients;
+import static app.SearchById.searchPatientById;
 
 public class MainApp {
 
@@ -75,29 +76,7 @@ public class MainApp {
                     break;
 
                 case 5:
-                    System.out.println("Enter patient ID: ");
-                    int searchId;
-
-                    try {
-                        searchId = scanner.nextInt();
-
-                    } catch (Exception e) {
-                        System.out.println("Invalid ID.");
-                        scanner.nextLine();
-
-                        break;
-                    }
-
-                    scanner.nextLine();
-
-                    Patient found = waitingRoom.findPatientById(searchId);
-
-                    if (found != null) {
-                        System.out.println("Patient: " + found);
-
-                    } else {
-                        System.out.println("Patient not found!");
-                    }
+                    SearchById.searchPatientById(scanner, waitingRoom);
 
                     break;
 
