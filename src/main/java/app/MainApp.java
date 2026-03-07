@@ -94,7 +94,7 @@ public class MainApp {
                     System.out.println("Invalid option.");
             }
 
-        } while (choice != 6);
+        } while (choice != 7);
 
         scanner.close();
     }
