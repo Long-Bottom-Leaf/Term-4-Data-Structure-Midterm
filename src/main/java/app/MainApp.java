@@ -9,6 +9,7 @@ import model.PatientRecord;
 import static app.NavigateHistory.navigateHistory;
 import static app.PreloadPatientHistory.preloadHistory;
 import static app.PreloadPatients.preloadPatients;
+import static app.SearchById.searchPatientById;
 
 public class MainApp {
 
@@ -34,7 +35,16 @@ public class MainApp {
             System.out.println("7. Exit");
             System.out.print("Enter choice: ");
 
-            choice = scanner.nextInt();
+            try {
+                choice = scanner.nextInt();
+
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine();
+                choice = 0;
+                continue;
+            }
+
             scanner.nextLine();
 
             switch (choice) {
@@ -66,22 +76,19 @@ public class MainApp {
                     break;
 
                 case 5:
-                    System.out.println("Enter patient ID: ");
-                    int searchId = scanner.nextInt();
-
-                    Patient found = waitingRoom.findPatientById(searchId);
-
-                    if (found != null) {
-                        System.out.println("Patient: " + found);
-
-                    } else {
-                        System.out.println("Patient not found!");
-                    }
+                    SearchById.searchPatientById(scanner, waitingRoom);
 
                     break;
 
                 case 6:
-                    System.out.println("Next patient: " + waitingRoom.checkNextPatient());
+                    Patient next = waitingRoom.checkNextPatient();
+
+                    if (next != null) {
+                        System.out.println("Next patient: " + next);
+
+                    } else {
+                        System.out.println("No patients waiting.");
+                    }
 
                     break;
 
